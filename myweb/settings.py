@@ -1,4 +1,6 @@
-
+import django_heroku
+import dj_database_url
+from decouple import config
 
 """
 Django settings for myweb project.
@@ -138,3 +140,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+django_heroku.settings(locals())
