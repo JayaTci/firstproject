@@ -1,7 +1,4 @@
-import django_heroku
-import dj_database_url
-from decouple import config
-
+import os
 """
 Django settings for myweb project.
 
@@ -29,7 +26,7 @@ SECRET_KEY = 'django-insecure-a^@+*#un+@w$-^g9zso+^y5d97ua!$de%0$w@&tqw$6q!en&8m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'cyrilforum.herokuapp.com']
+ALLOWED_HOSTS = ['cyrilforum.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -127,11 +124,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -140,4 +141,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-django_heroku.settings(locals())
+
