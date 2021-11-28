@@ -1,1 +1,1 @@
-web: gunicorn myweb.forum
+web: gunicorn app:app
